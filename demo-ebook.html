@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demo E-book — Front Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#00e676;--accent-2:#7c4dff;--muted:#9aa3b2}
+    html,body{height:100%;margin:0;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#041018,#071018);color:#e6eef6}
+    .wrap{max-width:720px;margin:28px auto;padding:18px}
+    .cover{height:560px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+    .cover h1{margin:0;font-size:30px;color:linear-gradient(90deg,var(--accent),var(--accent-2));text-align:center}
+    .cover p{color:var(--muted);margin-top:12px;max-width:72%;text-align:center}
+    .meta{margin-top:18px;color:var(--accent);font-weight:700}
+    .cta{margin-top:28px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#00c853);color:#072109;border:0;cursor:pointer;font-weight:800;box-shadow:0 12px 36px rgba(0,230,118,0.12);transform:translateY(0);transition:transform .15s ease,box-shadow .15s ease}
+    .cta:hover{transform:translateY(-6px);box-shadow:0 28px 70px rgba(0,230,118,0.14)}
+    .note{margin-top:14px;color:var(--muted);font-size:0.95rem;text-align:center}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    a.brand{color:var(--accent-2);text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/">WhatsApp Community — Demo</a>
+      <div class="small">Front page only</div>
+    </div>
+
+    <div class="cover" role="document" aria-label="E-book cover preview">
+      <h1>Diet & Lifestyle<br>After Bariatric Surgery</h1>
+      <p>Practical meal plans, diabetes-friendly tips, and realistic strategies to control weight and thrive after surgery.</p>
+      <div class="meta">Free e-book (preview)</div>
+      <button class="cta" id="joinFromDemo">Join the WhatsApp Community</button>
+      <div class="note">Full e-book link will be shared inside the WhatsApp community chat after you join.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('joinFromDemo').addEventListener('click', function(){
+      window.location.href = 'https://whatsapp.com/channel/0029VbBGe8vD38CbD7UrcE3E';
+    });
+  </script>
+</body>
+</html>

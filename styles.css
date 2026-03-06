@@ -1,0 +1,144 @@
+/* Dark, AI-themed responsive styles for the landing page */
+:root{
+  --max:980px;
+  /* New vibrant AI palette: blue, purple, cyan, pink */
+  --bg:#060814;
+  --surface:#071021;
+  --card:#071022;
+  --accent:#2575fc; /* blue */
+  --accent-2:#6a11cb; /* purple */
+  --accent-3:#00c6ff; /* cyan */
+  --accent-4:#ff6ac1; /* pink */
+  --muted:#9aa3b2;
+  --glass: rgba(255,255,255,0.02);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+body{background: radial-gradient(1200px 500px at 10% 10%, rgba(124,77,255,0.06), transparent), radial-gradient(1000px 400px at 90% 90%, rgba(0,230,118,0.04), transparent), linear-gradient(180deg,var(--bg),#04050a);color:#e6eef6}
+.container{max-width:var(--max);margin:36px auto;padding:20px}
+.hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+@media (max-width:880px){.hero{grid-template-columns:1fr;}.card{order:2}}
+.hero-left{position:relative;padding:12px 6px}
+.ai-blob{position:absolute;right:-40px;top:-36px;width:320px;height:320px;border-radius:40% 60% 40% 60%;background:linear-gradient(135deg,var(--accent),var(--accent-2));filter:blur(36px);opacity:0.12;transform:translateZ(0);animation:blobMove 9s ease-in-out infinite}
+.hero-left h1{font-size:1.85rem;margin:0 0 12px;line-height:1.08}
+.hero-left h1.reveal{opacity:0;transform:translateY(8px);animation:fadeUp 700ms cubic-bezier(.2,.9,.3,1) forwards 120ms}
+.lead{color:var(--muted);margin:0 0 18px;max-width:58ch}
+.benefits{list-style:disc;padding-left:1.1rem;margin:0 0 18px;color:var(--muted)}
+.note{font-size:0.95rem;color:var(--muted)}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px 20px 18px;border-radius:14px;box-shadow:0 18px 50px rgba(2,6,23,0.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03);transform:translateY(0);animation:none}
+.card h2{margin:0 0 6px}
+
+/* Card header and improved typography */
+.card-header{margin-bottom:8px}
+.card-title{display:flex;align-items:center;gap:12px}
+.card-icon{color:var(--accent-2);width:36px;height:36px;flex:0 0 36px}
+.card h2{font-size:1.12rem;margin:0;font-weight:700}
+.card-sub{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+
+/* Trust line */
+.trust{margin-top:12px;font-size:0.85rem;color:var(--muted);display:inline-block}
+label{display:block;font-size:0.9rem;margin-top:10px}
+/* inputs inside card */
+.card input[type=text],.card input[type=email],.card input[type=tel]{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);margin-top:8px;background:rgba(255,255,255,0.02);color:#e9f3ff;font-size:0.98rem}
+input::placeholder{color:#9aa6b4}
+.card input:focus{outline:none;box-shadow:0 8px 28px rgba(106,17,203,0.06);border-color:rgba(106,17,203,0.9)}
+.checkbox{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:0.88rem}
+.cta{display:inline-block;width:100%;margin-top:16px;padding:12px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:#ffffff;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(106,17,203,0.12);transition:transform .15s ease,box-shadow .15s ease}
+.cta:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(99,102,241,0.14)}
+.privacy{font-size:0.8rem;color:var(--muted);margin-top:12px}
+.preview-wrap{margin-top:12px}
+.preview-btn{background:transparent;border:1px solid rgba(124,77,255,0.9);color:var(--accent-2);padding:9px 12px;border-radius:8px;cursor:pointer;font-weight:600;box-shadow:0 6px 16px rgba(124,77,255,0.06);transition:transform .12s ease,box-shadow .12s ease}
+.preview-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(124,77,255,0.09)}
+footer{margin-top:28px;color:var(--muted);font-size:0.9rem;text-align:center}
+.hidden{display:none}
+.after{padding:12px;background:linear-gradient(90deg, rgba(0,230,118,0.08), rgba(124,77,255,0.06));color:var(--accent);border-radius:8px;margin-top:12px}
+input:invalid{outline:2px solid rgba(220,38,38,0.06)}
+
+/* Modal for e-book preview */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60}
+.modal.hidden{display:none}
+.modal-content{width:min(880px,92vw);height:min(640px,86vh);background:linear-gradient(180deg,#061018,#0b0f16);border-radius:10px;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+.modal-content iframe{width:100%;height:100%;border:0;display:block;background:transparent}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:6px}
+
+/* Animations */
+@keyframes blobMove{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(-18px,12px,0) scale(1.06)}
+  100%{transform:translate3d(0,0,0) scale(1)}
+}
+@keyframes fadeUp{
+  to{opacity:1;transform:none}
+}
+@keyframes cardFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+/* small micro-interaction for preview button */
+.preview-btn{border-color:rgba(124,77,255,0.9);color:var(--accent-2)}
+
+/* placeholder color */
+input::placeholder{color:#6f7b88}
+
+@media (max-width:880px){
+  .ai-blob{display:none}
+  .modal-content{height:84vh}
+}
+
+/* background visuals removed (was .bg-visuals) */
+.bg-visuals{display:none!important}
+
+/* ensure main content layout stays as defined earlier */
+.container{position:static;z-index:auto}
+
+/* Typography improvements */
+body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+h1,h2,h3,h4{font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+h1{letter-spacing:-0.2px}
+h2{letter-spacing:-0.3px}
+p,li{line-height:1.5;color:var(--muted)}
+
+/* subtle heading accent */
+.hero-left h1:after{content:'';display:block;width:48px;height:6px;margin-top:12px;border-radius:6px;background:linear-gradient(90deg,var(--accent-2),var(--accent));opacity:0.9}
+
+/* Features / cards */
+.features{margin-top:28px;padding:18px 6px}
+.features h3{margin:0 0 12px;font-size:1.1rem}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:flex-start;transition:transform .18s ease,box-shadow .18s ease}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(2,6,23,0.5)}
+.feature-card .icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-2),var(--accent-3));color:#fff;flex:0 0 56px;box-shadow:0 6px 18px rgba(106,17,203,0.08)}
+.feature-card .icon svg{width:22px;height:22px}
+.feature-card h4{margin:0 0 6px;font-size:1rem}
+.feature-card p{margin:0;color:var(--muted);font-size:0.95rem}
+
+@media (max-width:680px){.cards{grid-template-columns:1fr}}
+
+/* Testimonials */
+.testimonials{margin-top:22px;padding:18px 6px}
+.testimonials h3{margin:0 0 12px}
+.test-list{display:grid;gap:10px}
+.test{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-style:italic;position:relative}
+.test:before{content:'"';position:absolute;font-size:48px;left:12px;top:6px;color:rgba(106,17,203,0.12);font-family:serif}
+.test cite{display:block;margin-top:12px;font-style:normal;color:var(--accent-2);font-weight:700}
+
+/* FAQ accordion */
+.faq{margin-top:22px;padding:18px 6px}
+.faq h3{margin:0 0 12px}
+.faq-item{margin-bottom:8px}
+.faq-q{width:100%;text-align:left;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6;cursor:pointer;font-weight:700}
+.faq-q:after{content:'+';float:right}
+.faq-q[aria-expanded="true"]:after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .28s ease;padding:0 12px;color:var(--muted);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:8px;margin-top:6px}
+.faq-a.open{padding:12px;margin-top:6px}
+
+/* inline error messages */
+.error-message{color:#ffb4b4;background:rgba(220,38,38,0.06);padding:6px 8px;border-radius:6px;margin-top:6px;font-size:0.875rem}
+
+/* small responsive tweak */
+@media (max-width:480px){
+  .feature-card{padding:10px}
+  .feature-card .icon{width:40px;height:40px}
+}
